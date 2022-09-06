@@ -4,42 +4,25 @@ import TodoItem from "./components/todo-item/TodoItem";
 import Button from "./components/button/Button";
 import "./App.css";
 import Modal from "./components/modal/Modal";
-import AddForm from "./components/addtodoform/AddTodoForm";
 import EditForm from "./components/editform/EditForm";
 import { useEffect } from "react";
+import AddForm from "./components/addtodoform/AddTodoForm";
 
-const TODOS_MOCK = [
-  {
-    id: "1",
-    title: "Todo 1",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. At id illo repellendus non maiores in pariatur aliquam iure fugit amet!",
-    completed: false,
-  },
-  {
-    id: "2",
-    title: "Todo 2",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit!",
-    completed: false,
-  },
-  {
-    id: "3",
-    title: "Todo 3",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit!",
-    completed: true,
-  },
-  {
-    id: "4",
-    title: "Todo 4",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit!",
-    completed: true,
-  },
-];
+const getStoredValuesFromLocalStorage = () => {
+  const storedItems = localStorage.getItem("toDoList");
+  return storedItems ? JSON.parse(storedItems) : []; // transforma stringul in obiect
+};
 
 function App(props) {
-  const [toDoList, setToDoList] = useState(TODOS_MOCK);
+  const [toDoList, setToDoList] = useState(getStoredValuesFromLocalStorage);
   const [isOpen, setIsOpen] = useState(false);
   const [editState, setEditState] = useState(null);
+
+  useEffect(() => {
+    const todosToSave = JSON.stringify(toDoList); // trasnform obiectul in string
+
+    localStorage.setItem("toDoList", todosToSave);
+  }, [toDoList]);
 
   const addingTeam = (todo) => {
     const id = Math.random().toString(36).slice(2, 10);
@@ -47,7 +30,7 @@ function App(props) {
       ...prevState,
       { ...todo, id: id, completed: false },
     ]);
-    setIsOpen(false);
+    closeModal();
   };
 
   const closeModal = () => {
@@ -57,6 +40,12 @@ function App(props) {
   const openModal = () => {
     setIsOpen(true);
   };
+
+  useEffect(() => {
+    if (isOpen === false) {
+      setEditState(null);
+    }
+  }, [isOpen]);
 
   const onCheckTodo = (item) => {
     setToDoList((prevState) => {
@@ -89,7 +78,7 @@ function App(props) {
     setIsOpen(true);
   };
 
-  /* 
+  /*
   useEffect(() => {
     console.log(editState);
   }, [editState]);
@@ -185,3 +174,7 @@ function App(props) {
 }
 
 export default App;
+
+//Bug-uri
+//1. Dupa ce dau Edit si save nu mai pot accesa datele din alt Todo
+//2. Dupa ce dau Edit si inchid fereastra, cand dau add imi deschide tot fereastra de Edit
