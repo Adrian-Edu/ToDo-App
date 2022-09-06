@@ -3,6 +3,7 @@ import Input from "../input/Input";
 import TextArea from "../input/TextArea";
 import Button from "../button/Button";
 import Card from "../card/Card";
+import "./EditForm.css";
 
 const EditForm = (props) => {
   const [saveInputChange, setSaveInputChange] = useState(

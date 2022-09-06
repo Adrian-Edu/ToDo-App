@@ -1,7 +1,7 @@
 .card {
-  height: 100vh;
-  width: 300px;
-  width: 400px;
+  width: 70%;
+  min-width: 350px;
+  max-width: 500px;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 40px 20px;
   margin: 0 auto;
@@ -13,18 +13,3 @@
   margin: 0;
   margin-bottom: 10px;
 }
-
-
-
-/*
-
-
-  min-height: 100vh;
-  min-width: 300px;
-  max-width: 400px;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 40px 20px;
-  margin: 0 auto;
-  border-radius: 15px;
-
-  */
