@@ -2,14 +2,21 @@
   width: 80%;
   min-width: 350px;
   max-width: 500px;
-  background-color: rgba(238, 255, 0, 0.5);
+  background-color: linear-gradient(red, yellow, blue);
   padding: 40px 20px;
   margin: 0 auto;
+  border-style: solid;
+  border-color: rgb(255, 198, 198);
   border-radius: 15px;
+  
 }
 
 .todo-container h3 {
   text-align: center;
   margin: 0;
   margin-bottom: 10px;
+}
+
+p {
+  color: black
 }

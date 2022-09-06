@@ -36,7 +36,8 @@ p {
 
 .todo-item p {
   font-size: 14px;
-  color: #555;
+  color: black;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .todo-completed {
