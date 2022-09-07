@@ -3,31 +3,78 @@ import Input from "../input/Input";
 import TextArea from "../input/TextArea";
 import Button from "../button/Button";
 import Card from "../card/Card";
+import { useEffect } from "react";
 import "./AddTodoForm.css";
 
 const AddForm = (props) => {
-  const [saveInputChange, setSaveInputChange] = useState("");
-  const [title, setTitle] = useState("");
+  const [saveTitle, setSaveTitle] = useState("");
+  const [saveDescription, setSaveDescription] = useState("");
+  const [errorMessage, setErrorMessage] = useState({
+    saveTitle: "",
+    saveDescription: "",
+    isValid: "",
+  });
+  const [buttonColor, setButtonColor] = useState("changeButtonColor");
 
   const handleInputChange = (e) => {
-    setSaveInputChange(e.target.value);
+    setSaveTitle(e.target.value);
   };
 
   const handleTextAreaInput = (e) => {
-    setTitle(e.target.value);
+    setSaveDescription(e.target.value);
   };
 
   const handleSubmite = (e) => {
     e.preventDefault();
 
     props.onAddTeam({
-      title: saveInputChange,
-      description: title,
+      title: saveTitle,
+      description: saveDescription,
     });
 
-    setSaveInputChange("");
-    setTitle("");
+    setSaveTitle("");
+    setSaveDescription("");
   };
+
+  useEffect(() => {
+    if (saveTitle.length <= 2 && saveDescription.length <= 2) {
+      setErrorMessage((prevState) => ({
+        ...prevState,
+        saveTitle: "Please complete the title!",
+        saveDescription: "Please complete the description!",
+        isValid: true,
+      }));
+    } else if (saveTitle.length <= 2) {
+      setErrorMessage((prevState) => ({
+        ...prevState,
+        saveTitle: "Please complete the title!",
+        saveDescription: "",
+        isValid: true,
+      }));
+    } else if (saveDescription.length <= 2) {
+      setErrorMessage((prevState) => ({
+        ...prevState,
+        saveTitle: "",
+        saveDescription: "Please complete the description!",
+        isValid: true,
+      }));
+    } else {
+      setErrorMessage((prevState) => ({
+        ...prevState,
+        saveTitle: "",
+        saveDescription: "",
+        isValid: false,
+      }));
+    }
+  }, [saveTitle, saveDescription]);
+
+  useEffect(() => {
+    if (errorMessage.isValid === true) {
+      setButtonColor("changeButtonColor");
+    } else {
+      setButtonColor("primary-button");
+    }
+  }, [errorMessage]);
 
   return (
     <div>
@@ -35,18 +82,26 @@ const AddForm = (props) => {
         <h2>Create Todo</h2>
         <form onSubmit={handleSubmite}>
           <Input
-            value={saveInputChange}
+            value={saveTitle}
             onChange={handleInputChange}
             placeholder="Title"
             type="text"
           />
+          <span>{errorMessage.saveTitle}</span>
           <TextArea
-            value={title}
+            value={saveDescription}
             onChange={handleTextAreaInput}
             placeholder="Description"
           />
+          <span>{errorMessage.saveDescription}</span>
 
-          <Button onClick={props.onCreateClick}>Create</Button>
+          <Button
+            className={` ${buttonColor} `}
+            disabled={errorMessage.isValid}
+            onClick={props.onCreateClick}
+          >
+            Create
+          </Button>
         </form>
       </Card>
     </div>

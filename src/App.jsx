@@ -7,6 +7,7 @@ import Modal from "./components/modal/Modal";
 import EditForm from "./components/editform/EditForm";
 import { useEffect } from "react";
 import AddForm from "./components/addtodoform/AddTodoForm";
+//baaaaaaaaaaaaaaaaaaaa
 
 const getStoredValuesFromLocalStorage = () => {
   const storedItems = localStorage.getItem("toDoList");
@@ -174,3 +175,44 @@ function App(props) {
 }
 
 export default App;
+
+/*
+
+
+import React, {useEffect, useState} from "react";
+
+function useWindowSize() {
+  const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
+  useEffect(() => {
+  const handleResize = () => {
+    setSize([window.innerHeight, window.innerWidth])
+  }  
+  window.addEventListener("resize", handleResize)
+  return () => {
+    window.removeEventListener("resize", handleResize)
+  } 
+  }, [])
+  return size;
+}
+
+
+function App() {
+
+  const [height, width] = useWindowSize();
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <>
+        
+        height: {height}, width: {width}
+        
+        </>
+      </header>
+    </div>
+  );
+}
+
+export default App;
+
+*/
