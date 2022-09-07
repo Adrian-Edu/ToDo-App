@@ -131,6 +131,7 @@ function App(props) {
           <Button onClick={openModal}>Add +</Button>
 
           <h3>Incompleted</h3>
+          <div className="separator"></div>
           <div className="list-container">
             {toDoList
               .filter((val) => !val.completed)
@@ -150,9 +151,8 @@ function App(props) {
               ))}
           </div>
 
-          <div className="separator"></div>
-
           <h3>Completed</h3>
+          <div className="separator"></div>
           <div className="list-container">
             {toDoList
               .filter((val) => val.completed)
