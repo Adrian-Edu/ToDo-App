@@ -2,10 +2,9 @@
   width: 100%;
   min-width: 290px;
   max-width: 450px;
-  background-color: linear-gradient(red, yellow, blue);
   padding: 40px 20px;
   border-style: solid;
-  border-color: rgb(255, 198, 198);
+  border-color: rgba(0, 0, 0, 0.452);
   border-radius: 15px;
   flex-wrap: wrap;
 }

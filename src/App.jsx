@@ -126,8 +126,11 @@ function App(props) {
         */}
 
         <Card>
-          <h1>My todos</h1>
+          <h2>My todos</h2>
+
           <Button onClick={openModal}>Add +</Button>
+
+          <h3>Incompleted</h3>
           <div className="list-container">
             {toDoList
               .filter((val) => !val.completed)
@@ -146,9 +149,10 @@ function App(props) {
                 />
               ))}
           </div>
+
           <div className="separator"></div>
 
-          <h2>Completed</h2>
+          <h3>Completed</h3>
           <div className="list-container">
             {toDoList
               .filter((val) => val.completed)
