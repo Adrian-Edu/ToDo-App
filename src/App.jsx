@@ -7,7 +7,6 @@ import Modal from "./components/modal/Modal";
 import EditForm from "./components/editform/EditForm";
 import { useEffect } from "react";
 import AddForm from "./components/addtodoform/AddTodoForm";
-//baaaaaaaaaaaaaaaaaaaa
 
 const getStoredValuesFromLocalStorage = () => {
   const storedItems = localStorage.getItem("toDoList");

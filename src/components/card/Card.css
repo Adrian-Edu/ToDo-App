@@ -1,14 +1,14 @@
 .card {
   width: 80%;
-  min-width: 350px;
-  max-width: 500px;
+  min-width: 200px;
+  max-width: 450px;
   background-color: linear-gradient(red, yellow, blue);
   padding: 40px 20px;
   margin: 0 auto;
   border-style: solid;
   border-color: rgb(255, 198, 198);
   border-radius: 15px;
-  
+  flex-wrap: wrap;
 }
 
 .todo-container h3 {
