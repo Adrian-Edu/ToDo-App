@@ -50,6 +50,7 @@ h2 {
   margin: 20px 0;
 }
 
+
 @media screen and (max-width: 600px) {
   div.app-container {
     font-size: 10px;
@@ -65,6 +66,13 @@ h2 {
   }
   div.list-container {
     padding: 10px 0;
+  }
+  button.primary-button {
+    font-size: 13px;
+  }
+  div.card {
+    max-width: fit-content;
+    font-weight: 700;
   }
 }
 
