@@ -174,7 +174,3 @@ function App(props) {
 }
 
 export default App;
-
-//Bug-uri
-//1. Dupa ce dau Edit si save nu mai pot accesa datele din alt Todo
-//2. Dupa ce dau Edit si inchid fereastra, cand dau add imi deschide tot fereastra de Edit
