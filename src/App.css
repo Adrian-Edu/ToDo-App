@@ -49,3 +49,9 @@
 h2 {
   margin: 20px 0;
 }
+
+@media screen and (max-width: 600px) {
+  div.app-container {
+    font-size: 10px;
+  } }
+
