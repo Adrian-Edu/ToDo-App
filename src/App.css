@@ -19,6 +19,7 @@
  
 }
 
+
 .App-link {
   color: #61dafb;
 }
@@ -46,11 +47,6 @@
   border-radius: 15px;
 }
 
-h2 {
-  margin: 20px 0;
-}
-
-
 @media screen and (max-width: 600px) {
   div.app-container {
     font-size: 10px;
@@ -76,6 +72,6 @@ h2 {
   }
 }
 
-
-  
-
+h3 {
+  margin: 15px 0 0 0;
+}
