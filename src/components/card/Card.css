@@ -1,6 +1,6 @@
 .card {
   width: 80%;
-  min-width: 200px;
+  min-width: 260px;
   max-width: 450px;
   background-color: linear-gradient(red, yellow, blue);
   padding: 40px 20px;
