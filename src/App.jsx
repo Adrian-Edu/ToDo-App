@@ -126,7 +126,7 @@ function App(props) {
         */}
 
         <Card>
-          <h2>My todos</h2>
+          <h2>MY TODOS</h2>
 
           <Button onClick={openModal}>Add +</Button>
 
