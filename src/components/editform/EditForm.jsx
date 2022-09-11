@@ -44,14 +44,17 @@ const EditForm = (props) => {
     if (saveTitle.length <= 2 && saveDescription.length <= 2) {
       setErrorMessage((prevState) => ({
         ...prevState,
-        saveTitle: "Please complete the title!",
-        saveDescription: "Please complete the description!",
+        saveTitle:
+          "Please complete the title (it should have at least 3 characters)!",
+        saveDescription:
+          "Please complete the description (it should have at least 3 characters)!",
         isValid: true,
       }));
     } else if (saveTitle.length <= 2) {
       setErrorMessage((prevState) => ({
         ...prevState,
-        saveTitle: "Please complete the title!",
+        saveTitle:
+          "Please complete the title (it should have at least 3 characters)!",
         saveDescription: "",
         isValid: true,
       }));
@@ -59,7 +62,8 @@ const EditForm = (props) => {
       setErrorMessage((prevState) => ({
         ...prevState,
         saveTitle: "",
-        saveDescription: "Please complete the description!",
+        saveDescription:
+          "Please complete the description (it should have at least 3 characters)!",
         isValid: true,
       }));
     } else {
