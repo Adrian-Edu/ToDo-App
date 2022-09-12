@@ -37,21 +37,21 @@ const AddForm = (props) => {
   };
 
   useEffect(() => {
-    if (saveTitle.length <= 2 && saveDescription.length <= 2) {
+    if (saveTitle.trim().length <= 2 && saveDescription.trim().length <= 2) {
       setErrorMessage((prevState) => ({
         ...prevState,
         saveTitle: "The title should have at least 3 characters!",
         saveDescription: "The description should have at least 3 characters!",
         isValid: true,
       }));
-    } else if (saveTitle.length <= 2) {
+    } else if (saveTitle.trim().length <= 2) {
       setErrorMessage((prevState) => ({
         ...prevState,
         saveTitle: "The title should have at least 3 characters!",
         saveDescription: "",
         isValid: true,
       }));
-    } else if (saveDescription.length <= 2) {
+    } else if (saveDescription.trim().length <= 2) {
       setErrorMessage((prevState) => ({
         ...prevState,
         saveTitle: "",
