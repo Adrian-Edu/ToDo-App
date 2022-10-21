@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Card from "./components/card/Card";
 import TodoItem from "./components/todo-item/TodoItem";
 import Button from "./components/button/Button";
@@ -178,44 +178,3 @@ function App(props) {
 }
 
 export default App;
-
-/*
-
-
-import React, {useEffect, useState} from "react";
-
-function useWindowSize() {
-  const [size, setSize] = useState([window.innerHeight, window.innerWidth]);
-  useEffect(() => {https://prod.liveshare.vsengsaas.visualstudio.com/join?846E26F2F8B7E33DFF6ED2EA212B45758040
-  const handleResize = () => {
-    setSize([window.innerHeight, window.innerWidth])
-  }  
-  window.addEventListener("resize", handleResize)
-  return () => {
-    window.removeEventListener("resize", handleResize)
-  } 
-  }, [])
-  return size;
-}
-
-
-function App() {
-
-  const [height, width] = useWindowSize();
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <>
-        
-        height: {height}, width: {width}
-        
-        </>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-
-*/
