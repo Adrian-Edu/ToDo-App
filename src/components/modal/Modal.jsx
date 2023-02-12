@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Modal.css";
-import { useEffect } from "react";
 
 const Modal = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,21 +16,26 @@ const Modal = (props) => {
   }, [props.isOpen]);
 
   useEffect(() => {
-    const keyDownHandler = (event) => {
-      console.log("User pressed: ", event.key);
-
-      if (event.key === "Escape" && isOpen === true) {
+    const escKey = (event) => {
+      if (event.key === "Escape") {
         event.preventDefault();
         closeModal();
       }
     };
+    const clickOutside = (event) => {
+      if (event.target.className === "modal-wrapper") {
+        closeModal();
+      }
+    };
 
-    document.addEventListener("keydown", keyDownHandler);
+    document.addEventListener("keydown", escKey);
+    document.addEventListener("click", clickOutside);
 
     return () => {
-      document.removeEventListener("keydown", keyDownHandler);
+      document.removeEventListener("keydown", escKey);
+      document.removeEventListener("click", clickOutside);
     };
-  }, [isOpen]);
+  });
 
   return (
     <div className={`${isOpen ? "modal-wrapper" : "modal-hidden"}`}>
