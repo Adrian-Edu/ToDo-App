@@ -1,0 +1,12 @@
+.login-container {
+  height: 100vh;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-login {
+  font-size: 50px;
+  background-color: rgb(164, 164, 220);
+}
