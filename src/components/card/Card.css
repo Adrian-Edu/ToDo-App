@@ -1,7 +1,5 @@
 .card {
-  width: 100%;
-  min-width: 290px;
-  max-width: 450px;
+  width: 500px;
   padding: 40px 20px;
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.452);
@@ -18,5 +16,3 @@
 p {
   color: black;
 }
-
-

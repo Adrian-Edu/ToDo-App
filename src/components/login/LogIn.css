@@ -1,12 +1,28 @@
-.login-container {
-  height: 100vh;
-  background-color: aqua;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.login {
+  background-color: #15d31b;
+  border: none;
+  color: white;
+  padding: 20px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 2px solid black;
 }
 
-.button-login {
-  font-size: 50px;
-  background-color: rgb(164, 164, 220);
+.logout {
+  background-color: #15d31b;
+  border: none;
+  color: white;
+  padding: 20px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 15px;
+  border-radius: 5px;
+  border: 2px solid black;
 }
